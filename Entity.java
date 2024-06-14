@@ -379,8 +379,8 @@ public final class Entity {
         PathingStrategy strat = new AStarPathingStrategy();
 
         Predicate<Point> canPassThrough = p -> world.withinBounds(p)
-                || (world.getOccupant(p).isPresent()
-                && world.getOccupant(p).get().kind != EntityKind.TREE
+                && (world.getOccupant(p).isPresent()
+                || world.getOccupant(p).get().kind != EntityKind.TREE
                 && world.getOccupant(p).get().kind != EntityKind.OBSTACLE);
 
         BiPredicate<Point, Point> withinReach = Point::adjacent;
