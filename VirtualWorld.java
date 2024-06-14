@@ -76,10 +76,12 @@ public final class VirtualWorld extends PApplet {
 
         Point pressed = mouseToPoint();
         System.out.println("CLICK! " + pressed.x + ", " + pressed.y);
+        if(world.getOccupant(pressed).isEmpty()) {
 
         addCat(pressed, imageStore);
         addOrangeCat(pressed, imageStore);
         changeBackgroundTiles(pressed, imageStore);
+        }
 
 
     }
