@@ -8,8 +8,8 @@ import java.util.*;
  * location in the world, and the entities that populate the world.
  */
 public final class WorldModel {
-    private int numRows;
-    private int numCols;
+    public static int numRows;
+    public static numCols;
     private Background[][] background;
     private Entity[][] occupancy;
     private Set<Entity> entities;
