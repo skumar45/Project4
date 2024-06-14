@@ -59,6 +59,7 @@ class AStarPathingStrategy
             // analyze adjacent nodes that are not on closed list
             potentialNeighbors.apply(currNode.point)
                     .filter(canPassThrough)
+                    .filter(this::withinBounds)
                     .forEach(neighbor -> {
 
                         // distance from start node
@@ -101,10 +102,17 @@ class AStarPathingStrategy
 
         return path;
     }
+    public boolean withinBounds(Point pos) {
+        return pos.y >= 0 && pos.y < WorldModel.numRows && pos.x >= 0 && pos.x < WorldModel.numCols;
+    }
+
 
     private int heuristicDistance(Point p1, Point p2) {
         return Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
     }
+
+
+
 
 
 }
